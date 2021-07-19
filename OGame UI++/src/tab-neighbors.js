@@ -8,8 +8,6 @@ var fn = function () {
       var $wrapper = window._onMenuClick('neighbours');
       if (!$wrapper) return;
 
-      window.uipp_analytics('uipp-tab-click', 'nearby-neighbors');
-
       // keeps player coordinates
       var myCoords = new Array(3);
 

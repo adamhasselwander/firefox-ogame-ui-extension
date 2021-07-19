@@ -16,8 +16,6 @@ var fn = function () {
       var $wrapper = window._onMenuClick('settings');
       if (!$wrapper) return;
 
-      window.uipp_analytics('uipp-tab-click', 'settings');
-
       // trade rate window.config
       $wrapper.append($([
         '<div style="padding: 10px 0" class="clearfix">',
@@ -188,7 +186,6 @@ var fn = function () {
       $resetButton.click(function () {
         $('.resetChoice:checked').each(function () {
           var $this = $(this);
-          window.uipp_analytics('uipp-data-reset', $this.data('name'));
           switch ($this.data('name')) {
           case 'all': window._resetConfig(); break;
           case 'history': delete window.config.history; break;

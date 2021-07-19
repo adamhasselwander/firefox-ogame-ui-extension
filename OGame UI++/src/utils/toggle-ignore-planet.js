@@ -6,11 +6,9 @@ var fn = function () {
     var $el = $('#planet_' + galaxy + '_' + system + '_' + position);
     if (window.config.ignoredPlanets[key]) {
       window.config.ignoredPlanets[key] = false;
-      window.uipp_analytics('uipp-ignore-planet', 'restore');
       $el.removeClass('ignore');
     } else {
       window.config.ignoredPlanets[key] = true;
-      window.uipp_analytics('uipp-ignore-planet', 'ignore');
       $el.addClass('ignore');
     }
 

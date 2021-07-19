@@ -11,8 +11,6 @@ var fn = function () {
   		var $wrapper = window._onMenuClick('expeditions');
   		if (!$wrapper) return;
 
-  		window.uipp_analytics('uipp-tab-click', 'expeditions-tab');
-
   		var pastExpe = [];
   		for (var key in window.config.expeditionResults) {
   			pastExpe.push({

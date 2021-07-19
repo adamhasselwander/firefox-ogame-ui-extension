@@ -16,8 +16,6 @@ var fn = function () {
         }
       }
 
-      window.uipp_analytics('uipp-tab-click', 'statistics');
-
       var worth = window.uipp_getResourcesWorth();
       var globalStats = {
         prod: {

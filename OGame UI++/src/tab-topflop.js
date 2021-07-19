@@ -12,8 +12,6 @@ var fn = function () {
       var $wrapper = window._onMenuClick('topflop');
       if (!$wrapper) return;
 
-      window.uipp_analytics('uipp-tab-click', 'topflop');
-
       var N_ENTRIES = 15;
       var PLAYER_POOL = window.config.history;
 

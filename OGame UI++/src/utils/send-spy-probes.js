@@ -104,10 +104,8 @@ var fn = function () {
               if (a.response.success) {
                 _this.setStatus('end');
                 processSpyQueue();
-                window.uipp_analytics('uipp-spy', 'success');
               } else {
                 _this.setStatus('delay');
-                window.uipp_analytics('uipp-spy', 'failed');
                 if (a.response.coordinates) {
                   // wait for free mission slot
                   msg(a.response.message);

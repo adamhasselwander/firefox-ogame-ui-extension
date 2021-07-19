@@ -24,7 +24,6 @@ var fn = function () {
         });
         
       } else {
-        window.uipp_analytics('uipp-tab-click', 'idle-players');
         showPlayers($wrapper);
       }
     });
@@ -77,12 +76,12 @@ var fn = function () {
         '<table class="uipp-table">',
         '<thead id="highscoreContent">',
         '<tr>',
-        '<th onclick="uipp_analytics(\'uipp-sort\', \'coordinates\');">' + window._translate('COORDINATES') + '</th>',
-        '<th onclick="uipp_analytics(\'uipp-sort\', \'flight-time\');" class="tooltip" title="' + window._translate('RETURN_TRIP_DURATION') + '"><img src="https://gf2.geo.gfsrv.net/cdna2/89624964d4b06356842188dba05b1b.gif" style="transform:scale(1.6);margin-bottom:-4px;"/></th>',
-        '<th onclick="uipp_analytics(\'uipp-sort\', \'economy-score\');"><span class="navButton uipp-score" id="economy"></span></th>',
-        '<th onclick="uipp_analytics(\'uipp-sort\', \'military-score\');"><span class="navButton uipp-score" id="fleet"></span></th>',
-        '<th onclick="uipp_analytics(\'uipp-sort\', \'player-name\');">' + window._translate('PLAYER') + '</th>',
-        '<th onclick="uipp_analytics(\'uipp-sort\', \'note\');">' + window._translate('NOTE') + '</th>',
+        '<th>' + window._translate('COORDINATES') + '</th>',
+        '<th class="tooltip" title="' + window._translate('RETURN_TRIP_DURATION') + '"><img src="https://gf2.geo.gfsrv.net/cdna2/89624964d4b06356842188dba05b1b.gif" style="transform:scale(1.6);margin-bottom:-4px;"/></th>',
+        '<th><span class="navButton uipp-score" id="economy"></span></th>',
+        '<th><span class="navButton uipp-score" id="fleet"></span></th>',
+        '<th>' + window._translate('PLAYER') + '</th>',
+        '<th>' + window._translate('NOTE') + '</th>',
         '<th>' + window._translate('ACTIONS') + '</th>',
         '</tr>',
         '</thead>',
@@ -107,7 +106,7 @@ var fn = function () {
         }) + '" style="white-space: nowrap"><a href="?page=highscore&searchRelId=' + idle.id + '&category=1&type=3">' + window.uipp_scoreHumanReadable(idle.militaryScore) + ' (' + window.uipp_scoreHumanReadable(idle.ships ? idle.ships : '0') + ')</a></td>';
         td += '<td class="tooltip js_hideTipOnMobile" title="' + idle.name + '">' + idle.name + '</td>';
         td += '<td style="width: 260px"><input value="' + (window.config && window.config.planetNotes && window.config.planetNotes[idle.coords[0] + ':' + idle.coords[1] + ':' + idle.coords[2]] ? window.config.planetNotes[idle.coords[0] + ':' + idle.coords[1] + ':' + idle.coords[2]] : '') + '" onkeyup="_editNote(' + idle.coords[0] + ',' + idle.coords[1] + ',' + idle.coords[2] + ',this.value);return false;" style="width:96.5%;" type="text"/></td>';
-        td += '<td><a class="tooltip js_hideTipOnMobile espionage" title="" href="javascript:void(0);" onclick="_spy(' + idle.coords[0] + ',' + idle.coords[1] + ',' + idle.coords[2] + ');return false;"><span class="icon icon_eye"></span></a>&nbsp;<a href="javascript:void(0);" onclick="_toggleIgnorePlanet(' + idle.coords[0] + ',' + idle.coords[1] + ',' + idle.coords[2] + ')"><span class="icon icon_against"></span></a>&nbsp;<a href="?page=fleet1&galaxy=' + idle.coords[0] + '&system=' + idle.coords[1] + '&position=' + idle.coords[2] + '&type=1&mission=1" onclick="$(this).find(\'.icon\').removeClass(\'icon_fastforward\').addClass(\'icon_checkmark\');uipp_analytics(\'uipp-attack-idle\', 1);" target="_blank"><span class="icon icon_fastforward"></span></a></td>';
+        td += '<td><a class="tooltip js_hideTipOnMobile espionage" title="" href="javascript:void(0);" onclick="_spy(' + idle.coords[0] + ',' + idle.coords[1] + ',' + idle.coords[2] + ');return false;"><span class="icon icon_eye"></span></a>&nbsp;<a href="javascript:void(0);" onclick="_toggleIgnorePlanet(' + idle.coords[0] + ',' + idle.coords[1] + ',' + idle.coords[2] + ')"><span class="icon icon_against"></span></a>&nbsp;<a href="?page=fleet1&galaxy=' + idle.coords[0] + '&system=' + idle.coords[1] + '&position=' + idle.coords[2] + '&type=1&mission=1" onclick="$(this).find(\'.icon\').removeClass(\'icon_fastforward\').addClass(\'icon_checkmark\');" target="_blank"><span class="icon icon_fastforward"></span></a></td>';
         tr += td + '</tr>';
         if (window.config && window.config.ignoredPlanets && window.config.ignoredPlanets[idle.coords[0] + ':' + idle.coords[1] + ':' + idle.coords[2]]) {
           tr = $(tr).addClass('ignore').wrapAll('<div>').parent().html();

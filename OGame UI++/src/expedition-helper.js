@@ -118,7 +118,6 @@ var fn = function () {
 			$('input[name=transporterLarge]').val(nBigTransport);
 			$('input[name=transporterLarge]').keyup();
 
-			window.uipp_analytics('uipp-tab-click', 'expeditions-fleet');
 		};
       }
     }, 100);
